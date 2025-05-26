@@ -1,5 +1,8 @@
 package orangehrm.user;
 
+// import tu thu vien
+
+import javaSDET.Topic_01_Keywords;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
@@ -12,14 +15,18 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+// import cac class - interface tu cac package khac
+import javaSDET.Topic_01_Keywords;
+
 import java.time.Duration;
 
 public class Login_01_DRY {
     WebDriver driver;
     WebDriverWait explicitWait;
+    private Topic_01_Keywords topic01;
 
     @BeforeClass
-    public void beforeClass(){
+    public void beforeClass() {
         driver = new FirefoxDriver();
         driver.manage().window().maximize();
         explicitWait = new WebDriverWait(driver, Duration.ofSeconds(30));
@@ -27,7 +34,7 @@ public class Login_01_DRY {
     }
 
     @Test
-    public void Login_01_Empty(){
+    public void Login_01_Empty() {
         driver.get("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
         driver.findElement(By.cssSelector("input[name='username']")).sendKeys("");
         driver.findElement(By.cssSelector("input[name='password']")).sendKeys("");
@@ -38,7 +45,7 @@ public class Login_01_DRY {
     }
 
     @Test
-    public void Login_02_Invalid_Username(){
+    public void Login_02_Invalid_Username() {
         driver.get("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
         driver.findElement(By.cssSelector("input[name='username']")).sendKeys("dat@gmail.com");
         driver.findElement(By.cssSelector("input[name='password']")).sendKeys("admin123");
@@ -48,7 +55,7 @@ public class Login_01_DRY {
     }
 
     @Test
-    public void Login_03_Invalid_Password(){
+    public void Login_03_Invalid_Password() {
         driver.get("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
         driver.findElement(By.cssSelector("input[name='username']")).sendKeys("Admin");
         driver.findElement(By.cssSelector("input[name='password']")).sendKeys("12345!@#$");
@@ -58,7 +65,7 @@ public class Login_01_DRY {
     }
 
     @Test
-    public void Login_04_Valid_Username_Password(){
+    public void Login_04_Valid_Username_Password() {
         driver.get("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
         driver.findElement(By.cssSelector("input[name='username']")).sendKeys("Admin");
         driver.findElement(By.cssSelector("input[name='password']")).sendKeys("admin123");
@@ -68,13 +75,13 @@ public class Login_01_DRY {
         Assert.assertEquals(driver.findElement(By.cssSelector("div.oxd-topbar-header-title h6")).getText(), "Dashboard");
     }
 
-    public boolean isAllLoadingIconInvisible(){
+    public boolean isAllLoadingIconInvisible() {
         return explicitWait.until(ExpectedConditions
                 .invisibilityOfAllElements(driver.findElements(By.cssSelector("div.oxd-loading-spinner"))));
     }
 
     @AfterClass
-    public void afterClass(){
+    public void afterClass() {
         driver.quit();
     }
 }
