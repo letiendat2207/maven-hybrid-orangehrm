@@ -5,6 +5,8 @@
     <test name="Run on FIREFOX browser" >
         <classes>
             <class name="orangehrm.user.Login_01_DRY" />
+            <class name="orangehrm.user.Login_02_BasePage_I_Initial" />
+            <class name="orangehrm.user.Login_02_BasePage_III_Extend" />
         </classes>
     </test>
 
