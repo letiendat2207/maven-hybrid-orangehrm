@@ -7,21 +7,21 @@
     <test name="Run on FIREFOX browser" >
         <parameter name="browser" value="Firefox" />
         <classes>
-            <class name="orangehrm.user.Login_03_Multiple_Browser" />
+            <class name="orangehrm.Login_03_Multiple_Browser" />
         </classes>
     </test>
 
     <test name="Run on CHROME browser" >
         <parameter name="browser" value="Chrome" />
         <classes>
-            <class name="orangehrm.user.Login_03_Multiple_Browser" />
+            <class name="orangehrm.Login_03_Multiple_Browser" />
         </classes>
     </test>
 
     <test name="Run on EDGE browser" >
         <parameter name="browser" value="Edge" />
         <classes>
-            <class name="orangehrm.user.Login_03_Multiple_Browser" />
+            <class name="orangehrm.Login_03_Multiple_Browser" />
         </classes>
     </test>
 

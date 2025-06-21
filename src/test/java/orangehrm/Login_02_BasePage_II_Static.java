@@ -1,11 +1,9 @@
-package orangehrm.user;
+package orangehrm;
 
 import core.BasePage;
 import javaSDET.Topic_01_Keywords;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
@@ -14,7 +12,7 @@ import org.testng.annotations.Test;
 
 import java.time.Duration;
 
-public class Login_02_BasePage_I_Initial {
+public class Login_02_BasePage_II_Static {
     WebDriver driver;
     WebDriverWait explicitWait;
     private Topic_01_Keywords topic01;
@@ -24,7 +22,7 @@ public class Login_02_BasePage_I_Initial {
     @BeforeClass
     public void beforeClass() {
         driver = new FirefoxDriver();
-        basePage = new BasePage();
+        basePage = BasePage.getInstance();
 
         driver.manage().window().maximize();
         explicitWait = new WebDriverWait(driver, Duration.ofSeconds(30));

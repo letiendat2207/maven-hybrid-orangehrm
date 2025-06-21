@@ -1,36 +1,38 @@
-package orangehrm.user;
+package orangehrm;
 
 import core.BasePage;
-import core.BaseTest;
 import javaSDET.Topic_01_Keywords;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
-import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import java.time.Duration;
 
-public class Login_03_Multiple_Browser extends BaseTest {
-    private WebDriver driver;
+public class Login_02_BasePage_I_Initial {
+    WebDriver driver;
+    WebDriverWait explicitWait;
+    private Topic_01_Keywords topic01;
     private BasePage basePage;
-    private String appUrl;
+    private String appUrl = "https://opensource-demo.orangehrmlive.com/web/index.php/auth/login";
 
-    @Parameters({"appUrl", "browser"})
     @BeforeClass
-    public void beforeClass(String appUrl, String browserName) {
-        this.appUrl = appUrl;
-        basePage = BasePage.getInstance();
-        driver = getBrowserDriver(appUrl, browserName);
+    public void beforeClass() {
+        driver = new FirefoxDriver();
+        basePage = new BasePage();
+
+        driver.manage().window().maximize();
+        explicitWait = new WebDriverWait(driver, Duration.ofSeconds(30));
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
     }
 
     @Test
     public void Login_01_Empty() {
+        basePage.openUrl(driver, appUrl);
+
         basePage.sendkeyToElement(driver, "//input[@name='username']", "");
         basePage.sendkeyToElement(driver, "//input[@name='password']", "");
         basePage.clickToElement(driver, "//button[contains(@class, 'orangehrm-login-button')]");
@@ -41,6 +43,8 @@ public class Login_03_Multiple_Browser extends BaseTest {
 
     @Test
     public void Login_02_Invalid_Username() {
+        basePage.openUrl(driver, appUrl);
+
         basePage.sendkeyToElement(driver, "//input[@name='username']", "dat@gmail.com");
         basePage.sendkeyToElement(driver, "//input[@name='password']", "admin123");
         basePage.clickToElement(driver, "//button[contains(@class, 'orangehrm-login-button')]");
@@ -50,6 +54,8 @@ public class Login_03_Multiple_Browser extends BaseTest {
 
     @Test
     public void Login_03_Invalid_Password() {
+        basePage.openUrl(driver, appUrl);
+
         basePage.sendkeyToElement(driver, "//input[@name='username']", "Admin");
         basePage.sendkeyToElement(driver, "//input[@name='password']", "12345!@#$");
         basePage.clickToElement(driver, "//button[contains(@class, 'orangehrm-login-button')]");
@@ -59,6 +65,8 @@ public class Login_03_Multiple_Browser extends BaseTest {
 
     @Test
     public void Login_04_Valid_Username_Password() {
+        basePage.openUrl(driver, appUrl);
+
         basePage.sendkeyToElement(driver, "//input[@name='username']", "Admin");
         basePage.sendkeyToElement(driver, "//input[@name='password']", "admin123");
         basePage.clickToElement(driver, "//button[contains(@class, 'orangehrm-login-button')]");

@@ -1,13 +1,11 @@
-package orangehrm.user;
+package orangehrm;
 
 // import tu thu vien
 
 import javaSDET.Topic_01_Keywords;
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
@@ -16,7 +14,6 @@ import org.testng.annotations.Test;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 // import cac class - interface tu cac package khac
-import javaSDET.Topic_01_Keywords;
 
 import java.time.Duration;
 

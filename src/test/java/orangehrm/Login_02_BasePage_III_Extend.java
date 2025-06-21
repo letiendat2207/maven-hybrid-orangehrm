@@ -1,4 +1,4 @@
-package orangehrm.user;
+package orangehrm;
 
 import core.BasePage;
 import javaSDET.Topic_01_Keywords;
