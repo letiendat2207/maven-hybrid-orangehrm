@@ -9,8 +9,13 @@ import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.PageFactory;
 import pageUIs.AddEmployeePageUI;
 
+import java.util.List;
+
 public class AddEmployeePageObject extends BasePageFactory {
     private WebDriver driver;
+
+    @FindBy(xpath = "//div[@class='oxd-loading-spinner']")
+    private List<WebElement> loadingSpinner;
 
     @FindBy(how = How.XPATH, using = "//input[@name='firstName']")
     private WebElement firstnameTextbox;
@@ -47,5 +52,9 @@ public class AddEmployeePageObject extends BasePageFactory {
     public void clickToSaveButton() {
         waitElementVisible(driver, saveButton);
         clickToElement(driver, saveButton);
+    }
+
+    public boolean isLoadingSpinnerDisappear() {
+        return waitListElementInvisible(driver, loadingSpinner);
     }
 }

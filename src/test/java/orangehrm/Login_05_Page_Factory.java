@@ -31,23 +31,23 @@ public class Login_05_Page_Factory extends BaseTest {
         loginPage.clickToLoginButton();
 
         dashboardPage = new DashboardPageObject(driver);
-        Assert.assertTrue(dashboardPage.isLoadingSpinnerDisappear(driver));
+        Assert.assertTrue(dashboardPage.isLoadingSpinnerDisappear());
         dashboardPage.sleepInSeconds(2);
 
         dashboardPage.clickToPIMModule();
         employeeListPage = new EmployeeListPageObject(driver);
-        Assert.assertTrue(employeeListPage.isLoadingSpinnerDisappear(driver));
+        Assert.assertTrue(employeeListPage.isLoadingSpinnerDisappear());
 
         employeeListPage.clickToAddEmployeeButton();
         addEmployeePage = new AddEmployeePageObject(driver);
-        Assert.assertTrue(addEmployeePage.isLoadingSpinnerDisappear(driver));
+        Assert.assertTrue(addEmployeePage.isLoadingSpinnerDisappear());
 
         addEmployeePage.enterToFirstNameTextbox(employeeFirstname);
         addEmployeePage.enterToLastNameTextbox(employeeLastname);
         employeeID = addEmployeePage.getEmployeeID();
         addEmployeePage.clickToSaveButton();
         personalDetailPage = new PersonalDetailPageObject(driver);
-        Assert.assertTrue(personalDetailPage.isLoadingSpinnerDisappear(driver));
+        Assert.assertTrue(personalDetailPage.isLoadingSpinnerDisappear());
 
         personalDetailPage.sleepInSeconds(2);
 

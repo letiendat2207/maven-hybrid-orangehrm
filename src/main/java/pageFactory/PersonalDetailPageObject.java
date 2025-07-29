@@ -9,8 +9,13 @@ import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.PageFactory;
 import pageUIs.PersonalDetailPageUI;
 
+import java.util.List;
+
 public class PersonalDetailPageObject extends BasePageFactory {
     private WebDriver driver;
+
+    @FindBy(xpath = "//div[@class='oxd-loading-spinner']")
+    private List<WebElement> loadingSpinner;
 
     @FindBy(how = How.XPATH, using = "//input[@name='firstName']")
     private WebElement firstnameTextbox;
@@ -39,5 +44,9 @@ public class PersonalDetailPageObject extends BasePageFactory {
     public String getEmployeeIDTextboxValue() {
         waitElementVisible(driver, employeeIdTextbox);
         return getElementDomProperty(driver, employeeIdTextbox, "value");
+    }
+
+    public boolean isLoadingSpinnerDisappear() {
+        return waitListElementInvisible(driver, loadingSpinner);
     }
 }

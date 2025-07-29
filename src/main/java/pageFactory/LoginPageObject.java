@@ -9,8 +9,13 @@ import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.PageFactory;
 import pageUIs.LoginPageUI;
 
+import java.util.List;
+
 public class LoginPageObject extends BasePageFactory {
     private WebDriver driver;
+
+    @FindBy(xpath = "//div[@class='oxd-loading-spinner']")
+    private List<WebElement> loadingSpinner;
 
     // Define các Locator/ Element
     @FindBy(how = How.CSS, using = "input[name='username']")
@@ -43,5 +48,9 @@ public class LoginPageObject extends BasePageFactory {
     public void clickToLoginButton() {
         waitElementClickable(driver, loginButton);
         clickToElement(driver, loginButton);
+    }
+
+    public boolean isLoadingSpinnerDisappear() {
+        return waitListElementInvisible(driver, loadingSpinner);
     }
 }

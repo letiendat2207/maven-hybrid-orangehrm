@@ -229,7 +229,7 @@ public class BasePageFactory {
 
     public boolean isImageLoaded(WebDriver driver, WebElement element) {
         return (boolean) ((JavascriptExecutor) driver).executeScript(
-                "return arguments[0].complete && typeof arguments[0].naturalWidth != 'undefined' && arguments[0].naturalWidth > 0", getElement(driver, locator));
+                "return arguments[0].complete && typeof arguments[0].naturalWidth != 'undefined' && arguments[0].naturalWidth > 0", element);
     }
 
     public WebElement waitElementVisible(WebDriver driver, WebElement element) {
