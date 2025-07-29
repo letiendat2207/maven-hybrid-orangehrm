@@ -1,6 +1,5 @@
 package orangehrm;
 
-import core.BasePage;
 import core.BaseTest;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
@@ -8,9 +7,10 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
-import pageObjects.*;
+import pageFactory.*;
 
-public class Login_04_Page_Object extends BaseTest {
+
+public class Login_05_Page_Factory extends BaseTest {
     @Parameters({"appUrl", "browser"})
     @BeforeClass
     public void beforeClass(String appUrl, String browserName) {

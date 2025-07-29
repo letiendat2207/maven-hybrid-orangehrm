@@ -6,7 +6,7 @@ import org.openqa.selenium.support.Color;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import pageObjects.BasePageUI;
+import pageUIs.BasePageUI;
 
 import java.time.Duration;
 import java.util.List;
@@ -249,7 +249,7 @@ public class BasePage {
     }
 
     public void hightlightElement(WebDriver driver, String locator) {
-        WebElement element = getElement(driver, locator);
+        WebElement element  = getElement(driver, locator);
         String originalStyle = getElementDomAttribute(driver, locator, "style");
         ((JavascriptExecutor) driver).executeScript("arguments[0].setAttribute('style', arguments[1])", element, "border: 4px solid red; border-style: dashed;");
         sleepInSeconds(2);
