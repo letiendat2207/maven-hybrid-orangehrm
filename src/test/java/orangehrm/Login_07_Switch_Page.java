@@ -8,6 +8,10 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 import pageObjects.*;
+import pageObjects.editNavigation.ContactDetailPageObject;
+import pageObjects.editNavigation.DependentsPageObject;
+import pageObjects.editNavigation.JobPageObject;
+import pageObjects.editNavigation.PersonalDetailPageObject;
 
 public class Login_07_Switch_Page extends BaseTest {
     @Parameters({"appUrl", "browser"})
@@ -53,26 +57,26 @@ public class Login_07_Switch_Page extends BaseTest {
 
     @Test
     public void Employee_02_Contact_Detail() {
-        // Tu Personal qua Contact
-        contactDetailPage = personalDetailPage.openContactDetailPage(driver);
-
-        // Tu Contact qua Job
-        jobPage = contactDetailPage.openJobPage(driver);
-
-        // Tu Job qua Dependent
-        dependentPage = jobPage.openDependentPage(driver);
-
-        // Tu Dependent qua Personal
-        personalDetailPage = dependentPage.openPersonalDetailPage(driver);
-
-        // Tu Personal qua Job
-        jobPage = personalDetailPage.openJobPage(driver);
-
-        contactDetailPage = jobPage.openContactDetailPage(driver);
-
-        dependentPage = contactDetailPage.openDependentPage(driver);
-
-        personalDetailPage = dependentPage.openPersonalDetailPage(driver);
+//        // Tu Personal qua Contact
+//        contactDetailPage = personalDetailPage.openContactDetailPage(driver);
+//
+//        // Tu Contact qua Job
+//        jobPage = contactDetailPage.openJobPage(driver);
+//
+//        // Tu Job qua Dependent
+//        dependentPage = jobPage.openDependentPage(driver);
+//
+//        // Tu Dependent qua Personal
+//        personalDetailPage = dependentPage.openPersonalDetailPage(driver);
+//
+//        // Tu Personal qua Job
+//        jobPage = personalDetailPage.openJobPage(driver);
+//
+//        contactDetailPage = jobPage.openContactDetailPage(driver);
+//
+//        dependentPage = contactDetailPage.openDependentPage(driver);
+//
+//        personalDetailPage = dependentPage.openPersonalDetailPage(driver);
     }
 
     @AfterClass

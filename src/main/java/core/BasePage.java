@@ -7,6 +7,10 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import pageObjects.*;
+import pageObjects.editNavigation.ContactDetailPageObject;
+import pageObjects.editNavigation.DependentsPageObject;
+import pageObjects.editNavigation.JobPageObject;
+import pageObjects.editNavigation.PersonalDetailPageObject;
 import pageUIs.*;
 
 import java.time.Duration;
@@ -331,29 +335,6 @@ public class BasePage {
         return waitListElementInvisible(driver, BasePageUI.SPINNER_ICON);
     }
 
-    public PersonalDetailPageObject openPersonalDetailPage(WebDriver driver) {
-        waitElementClickable(driver, BasePageUI.PERSONAL_DETAIL_LINK);
-        clickToElement(driver, BasePageUI.PERSONAL_DETAIL_LINK);
-        return PageGeneratorGeneric.getPage(PersonalDetailPageObject.class, driver);
-    }
-
-    public DependentsPageObject openDependentPage(WebDriver driver) {
-        waitElementClickable(driver, BasePageUI.DEPENDENT_LINK);
-        clickToElement(driver, BasePageUI.DEPENDENT_LINK);
-        return PageGeneratorGeneric.getPage(DependentsPageObject.class, driver);
-    }
-
-    public ContactDetailPageObject openContactDetailPage(WebDriver driver) {
-        waitElementClickable(driver, BasePageUI.CONTACT_DETAIL_LINK);
-        clickToElement(driver, BasePageUI.CONTACT_DETAIL_LINK);
-        return PageGeneratorGeneric.getPage(ContactDetailPageObject.class, driver);
-    }
-
-    public JobPageObject openJobPage(WebDriver driver) {
-        waitElementClickable(driver, BasePageUI.JOB_LINK);
-        clickToElement(driver, BasePageUI.JOB_LINK);
-        return PageGeneratorGeneric.getPage(JobPageObject.class, driver);
-    }
 
     private final int SHORT_TIMEOUT = 10;
     private final int LONG_TIMEOUT = 30;

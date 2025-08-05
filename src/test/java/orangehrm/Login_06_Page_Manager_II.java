@@ -8,6 +8,8 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 import pageObjects.*;
+import pageObjects.editNavigation.ContactDetailPageObject;
+import pageObjects.editNavigation.PersonalDetailPageObject;
 
 public class Login_06_Page_Manager_II extends BaseTest {
     @Parameters({"appUrl", "browser"})
@@ -53,7 +55,7 @@ public class Login_06_Page_Manager_II extends BaseTest {
 
     @Test
     public void Employee_02_Contact_Detail() {
-        contactDetailPage = personalDetailPage.openContactDetailPage(driver);
+        // contactDetailPage = personalDetailPage.openContactDetailPage(driver);
     }
 
     @AfterClass

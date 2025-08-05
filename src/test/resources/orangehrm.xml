@@ -7,7 +7,7 @@
     <test name="Run on FIREFOX browser" >
         <parameter name="browser" value="Firefox" />
         <classes>
-            <class name="orangehrm.Login_07_Switch_Page" />
+            <class name="orangehrm.Login_08_Page_Navigator" />
         </classes>
     </test>
 

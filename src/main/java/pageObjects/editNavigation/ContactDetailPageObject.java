@@ -1,13 +1,13 @@
-package pageObjects;
+package pageObjects.editNavigation;
 
 import core.BasePage;
 import org.openqa.selenium.WebDriver;
-import pageUIs.PersonalDetailPageUI;
 
-public class ContactDetailPageObject extends BasePage {
+public class ContactDetailPageObject extends EditNavigatorPageObject {
     private WebDriver driver;
 
     public ContactDetailPageObject(WebDriver driver) {
+        super(driver);
         this.driver = driver;
     }
 }
