@@ -6,12 +6,12 @@ import org.openqa.selenium.support.Color;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import pageObjects.*;
-import pageObjects.editNavigation.ContactDetailPageObject;
-import pageObjects.editNavigation.DependentsPageObject;
-import pageObjects.editNavigation.JobPageObject;
-import pageObjects.editNavigation.PersonalDetailPageObject;
-import pageUIs.*;
+import pageObjects.PageGenerator;
+import pageObjects.openCart.admin.AdminLoginPO;
+import pageObjects.openCart.user.UserHomePO;
+import pageUIs.openCart.admin.AdminLoginPageUI;
+import pageUIs.openCart.user.UserHomePageUI;
+import pageUIs.orangeHRM.commonNavigation.BasePageUI;
 
 import java.time.Duration;
 import java.util.List;
@@ -209,6 +209,7 @@ public class BasePage {
     }
 
     public boolean isElementSelected(WebDriver driver, String locator) {
+        waitElementVisible(driver, locator);
         return getElement(driver, locator).isSelected();
     }
 
@@ -331,11 +332,45 @@ public class BasePage {
                 .until(ExpectedConditions.presenceOfAllElementsLocatedBy(getByXpath(locator)));
     }
 
+    // OrangeHRM
     public boolean isLoadingSpinnerDisappear(WebDriver driver) {
         return waitListElementInvisible(driver, BasePageUI.SPINNER_ICON);
     }
 
+    // OpenCart
+    public UserHomePO clickToLogoutLinkAtUserSite(WebDriver driver) {
+        scrollToElementOnDown(driver, UserHomePageUI.LOGOUT_LINK);
+        // wait clickable logout link
+        waitElementVisible(driver, UserHomePageUI.LOGOUT_LINK);
+        // click vào logout link
+        clickToElementByJS(driver, UserHomePageUI.LOGOUT_LINK);
+        scrollToElementOnDown(driver, UserHomePageUI.CONTINUE_BUTTON);
+        // wait clickable continue button
+        waitElementClickable(driver, UserHomePageUI.CONTINUE_BUTTON);
+        // click vào continue button
+        clickToElement(driver, UserHomePageUI.CONTINUE_BUTTON);
+        return PageGenerator.getPage(UserHomePO.class, driver);
+    }
+
+    public AdminLoginPO clickToLogoutLinkAtAdminSite(WebDriver driver) {
+        // wait clickable logout link
+        waitElementClickable(driver, AdminLoginPageUI.LOGOUT_LINK);
+        // click vào logout link
+        clickToElement(driver, AdminLoginPageUI.LOGOUT_LINK);
+        return PageGenerator.getPage(AdminLoginPO.class, driver);
+    }
+
+    public AdminLoginPO openAdminSite(WebDriver driver, String adminURL) {
+        openUrl(driver, adminURL);
+        return PageGenerator.getPage(AdminLoginPO.class, driver);
+    }
+
+    public UserHomePO openUserSite(WebDriver driver, String userURL) {
+        openUrl(driver, userURL);
+        return PageGenerator.getPage(UserHomePO.class, driver);
+    }
 
     private final int SHORT_TIMEOUT = 10;
     private final int LONG_TIMEOUT = 30;
+
 }
