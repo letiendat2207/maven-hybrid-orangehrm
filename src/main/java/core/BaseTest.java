@@ -8,6 +8,7 @@ import org.openqa.selenium.safari.SafariDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
+import java.util.Random;
 
 public class BaseTest {
     WebDriver driver;
@@ -42,5 +43,9 @@ public class BaseTest {
             driver.quit();
             driver = null;
         }
+    }
+
+    protected int getRandomNumber(){
+        return new Random().nextInt(0,99999);
     }
 }

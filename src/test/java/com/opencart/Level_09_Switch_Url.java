@@ -24,7 +24,6 @@ import pageUIs.openCart.user.UserHomePageUI;
 
 public class Level_09_Switch_Url extends BaseTest {
     private String userURL, adminURL;
-    private Random rand = new Random();
 
     @Parameters({"userUrl", "adminUrl", "browser"})
     @BeforeClass
@@ -37,10 +36,10 @@ public class Level_09_Switch_Url extends BaseTest {
 
         userHomePage = PageGenerator.getPage(UserHomePO.class, driver);
 
-        userFirstName = "Le" + rand.nextInt(0,99999);
-        userLastName = "Dat" + rand.nextInt(0,99999);
-        userEmail = "bitcoin" + rand.nextInt(0,99999) + "@gmail.com";
-        userPassword = "Bitcoin@123" + rand.nextInt(0,99999);
+        userFirstName = "Le" + getRandomNumber();
+        userLastName = "Dat" + getRandomNumber();
+        userEmail = "bitcoin" + getRandomNumber() + "@gmail.com";
+        userPassword = "Bitcoin@123" + getRandomNumber();
 
         adminUserName = "bitcoinism";
         adminPassword = "Bitcoinism21$$$";
