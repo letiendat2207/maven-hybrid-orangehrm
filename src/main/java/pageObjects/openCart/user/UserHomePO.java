@@ -16,9 +16,9 @@ public class UserHomePO extends BasePage {
     }
 
     public UserLoginPO clickToMyAccount() {
-        waitElementVisible(driver, UserHomePageUI.MY_ACCOUNT_DROPDOWN);
+        waitElementClickable(driver, UserHomePageUI.MY_ACCOUNT_DROPDOWN);
         clickToElement(driver, UserHomePageUI.MY_ACCOUNT_DROPDOWN);
-        waitElementVisible(driver, UserHomePageUI.LOGIN_SECTION);
+        waitElementClickable(driver, UserHomePageUI.LOGIN_SECTION);
         clickToElement(driver, UserHomePageUI.LOGIN_SECTION);
         return PageGenerator.getPage(UserLoginPO.class, driver);
     }

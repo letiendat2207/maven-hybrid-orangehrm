@@ -273,6 +273,7 @@ public class BasePage {
 
     public void scrollToElementOnTop(WebDriver driver, String locator) {
         ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", getElement(driver, locator));
+        sleepInSeconds(1);
     }
 
     public void scrollToElementOnDown(WebDriver driver, String locator) {
@@ -339,12 +340,12 @@ public class BasePage {
 
     // OpenCart
     public UserHomePO clickToLogoutLinkAtUserSite(WebDriver driver) {
-        scrollToElementOnDown(driver, UserHomePageUI.LOGOUT_LINK);
+        scrollToElementOnTop(driver, UserHomePageUI.LOGOUT_LINK);
         // wait clickable logout link
-        waitElementVisible(driver, UserHomePageUI.LOGOUT_LINK);
+        waitElementClickable(driver, UserHomePageUI.LOGOUT_LINK);
         // click vào logout link
-        clickToElementByJS(driver, UserHomePageUI.LOGOUT_LINK);
-        scrollToElementOnDown(driver, UserHomePageUI.CONTINUE_BUTTON);
+        clickToElement(driver, UserHomePageUI.LOGOUT_LINK);
+        scrollToElementOnTop(driver, UserHomePageUI.CONTINUE_BUTTON);
         // wait clickable continue button
         waitElementClickable(driver, UserHomePageUI.CONTINUE_BUTTON);
         // click vào continue button

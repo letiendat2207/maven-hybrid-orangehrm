@@ -13,7 +13,7 @@ public class UserLoginPO extends BasePage {
     }
 
     public UserRegisterPO clickToContinueButton() {
-        waitElementVisible(driver, UserLoginPageUI.CONTINUE_BUTTON);
+        waitElementClickable(driver, UserLoginPageUI.CONTINUE_BUTTON);
         clickToElement(driver, UserLoginPageUI.CONTINUE_BUTTON);
         return PageGenerator.getPage(UserRegisterPO.class, driver);
     }
@@ -29,7 +29,7 @@ public class UserLoginPO extends BasePage {
     }
 
     public void clickToLoginButton() {
-        scrollToElementOnDown(driver, UserLoginPageUI.LOGIN_BUTTON);
+        scrollToElementOnTop(driver, UserLoginPageUI.LOGIN_BUTTON);
         waitElementClickable(driver, UserLoginPageUI.LOGIN_BUTTON);
         clickToElement(driver, UserLoginPageUI.LOGIN_BUTTON);
     }

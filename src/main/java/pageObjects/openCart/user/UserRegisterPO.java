@@ -32,14 +32,14 @@ public class UserRegisterPO extends BasePage {
     }
 
     public void acceptPrivacyCheckbox() {
-        scrollToElementOnDown(driver, UserRegisterPageUI.ACCEPT_PRIVACY_CHECKBOX);
+        scrollToElementOnTop(driver, UserRegisterPageUI.ACCEPT_PRIVACY_CHECKBOX);
         waitElementClickable(driver, UserRegisterPageUI.ACCEPT_PRIVACY_CHECKBOX);
-        clickToElementByJS(driver, UserRegisterPageUI.ACCEPT_PRIVACY_CHECKBOX);
+        checkToCheckbox(driver, UserRegisterPageUI.ACCEPT_PRIVACY_CHECKBOX);
     }
 
     public void clickContinueButton() {
-        scrollToElementOnDown(driver, UserRegisterPageUI.CONTINUE_BUTTON);
-        waitElementVisible(driver, UserRegisterPageUI.CONTINUE_BUTTON);
+        scrollToElementOnTop(driver, UserRegisterPageUI.CONTINUE_BUTTON);
+        waitElementClickable(driver, UserRegisterPageUI.CONTINUE_BUTTON);
         clickToElement(driver, UserRegisterPageUI.CONTINUE_BUTTON);
     }
 }
